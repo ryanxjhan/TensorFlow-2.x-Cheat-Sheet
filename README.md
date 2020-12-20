@@ -1,9 +1,12 @@
-# TensorFlow-Cheat-Sheet
+# TensorFlow Cheat Sheet
+
+(Ryan Han)[https://www.linkedin.com/in/ryanxjhan/]
+
 ### Table of Contents
 
 * [Layers](#layers)
 * [Models](#models)
-* [Activation Functions](#activation)
+* [Activation Functions](#activations)
 * [Optimizers](#optimizers)
 * [Loss Functions](#loss)
 * [Hyperparameters](#parameters)
@@ -38,6 +41,17 @@
 | `model.ev­alu­ate(x, y)`                                     | Returns the loss value & metrics values for the model in test mode. |
 | `model.pr­edi­ct(x)`                                         | Generates output predic­tions for the input samples.         |
 | `model.su­mma­ry()`                                          | Prints a string summary of the network.                      |
+
+<a name="activations"/>
+
+### Activation Functions
+
+| Name    | Usage                                    |
+| ------- | ---------------------------------------- |
+| relu    | the default activation for hidden layers |
+| sigmoid | binary classi­fic­ation                  |
+| tanh    | faster conver­gence than sigmoid         |
+| softmax | multiclass classi­fic­ation              |
 
 
 
