@@ -41,6 +41,7 @@
 | `model.ev­alu­ate(x, y)`                                     | Returns the loss value & metrics values for the model in test mode. |
 | `model.pr­edi­ct(x)`                                         | Generates output predic­tions for the input samples.         |
 | `model.su­mma­ry()`                                          | Prints a string summary of the network.                      |
+| `model.save(path)`                                           | Saves a model as a TensorFlow SavedModel or HDF5 file.       |
 
 <a name="activations"/>
 
