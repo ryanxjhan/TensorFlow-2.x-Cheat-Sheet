@@ -11,6 +11,7 @@
 * [Loss Functions](#loss)
 * [Hyperparameters](#parameters)
 * [Preprocessing](#preprocessing)
+* [I/O](#io)
 * [Callbacks](#callbacks)
 * [Architectures](#architectures)
 * [Advanced Architectures](#aarchitectuers)
@@ -103,9 +104,52 @@
 
 ### Preprocessing
 
-| Method             | Usage                                                        |
-| ------------------ | ------------------------------------------------------------ |
-| ImageDataGenerator | Generate batches of tensor image data with real-time data augmen­tation. |
+**ImageDataGenerator**
+
+```python
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# All images will be rescaled by 1./255
+train_datagen = ImageDataGenerator(rescale=1/255)
+validation_datagen = ImageDataGenerator(rescale=1/255)
+
+# Flow training images in batches of 128 using train_datagen generator
+train_generator = train_datagen.flow_from_directory(
+        '/tmp/horse-or-human/',  # This is the source directory for training images
+        target_size=(300, 300),  # All images will be resized to 300x300
+        batch_size=128,
+        # Since we use binary_crossentropy loss, we need binary labels
+        class_mode='binary')
+
+# Flow training images in batches of 128 using train_datagen generator
+validation_generator = validation_datagen.flow_from_directory(
+        '/tmp/validation-horse-or-human/',  # This is the source directory for training images
+        target_size=(300, 300),  # All images will be resized to 300x300
+        batch_size=32,
+        # Since we use binary_crossentropy loss, we need binary labels
+        class_mode='binary')
+```
+
+<a name="io"/>
+
+### I/O
+
+**zip files** 
+
+```python
+import os
+import zipfile
+
+local_zip = '/tmp/horse-or-human.zip'
+zip_ref = zipfile.ZipFile(local_zip, 'r')
+zip_ref.extractall('/tmp/horse-or-human')
+local_zip = '/tmp/validation-horse-or-human.zip'
+zip_ref = zipfile.ZipFile(local_zip, 'r')
+zip_ref.extractall('/tmp/validation-horse-or-human')
+zip_ref.close()
+```
+
+
 
 <a name="callbacks"/>
 
