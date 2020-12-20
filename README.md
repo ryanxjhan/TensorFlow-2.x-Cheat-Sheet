@@ -46,12 +46,85 @@
 
 ### Activation Functions
 
-| Name    | Usage                                    |
-| ------- | ---------------------------------------- |
-| relu    | the default activation for hidden layers |
-| sigmoid | binary classi­fic­ation                  |
-| tanh    | faster conver­gence than sigmoid         |
-| softmax | multiclass classi­fic­ation              |
+| Name    | Usage                                     |
+| ------- | ----------------------------------------- |
+| relu    | the default activation for hidden layers. |
+| sigmoid | binary classi­fic­ation.                  |
+| tanh    | faster conver­gence than sigmoid.         |
+| softmax | multiclass classi­fic­ation.              |
 
+<a name="optimizers"/>
 
+### Optimizers
+
+| Name     | Usage                                                        |
+| -------- | ------------------------------------------------------------ |
+| Adam     | Adam combines the good properties of Adadelta and RMSprop and hence tend to do better for most of the problems. |
+| SGD      | Stochastic gradient descent is very basic and works well for shallow networks. |
+| AdaGrad  | Adagrad can be useful for sparse data such as tf-idf.        |
+| AdaDelta | Extension of AdaGrad which tends to remove the decaying learning Rate problem of it. |
+| RMSprop  | Very similar to AdaDelta.                                    |
+
+<a name="loss"/>
+
+### Loss Functions
+
+| Name                          | Usage                                                        |
+| ----------------------------- | ------------------------------------------------------------ |
+| MeanSquaredError              | Default loss function for regression problems.               |
+| MeanSquaredLogarithmicError   | For regression problems with large spread.                   |
+| MeanAbsoluteError             | More robust to outliers.                                     |
+| BinaryCrossEntropy            | Default loss function to use for binary classi­fic­ation problems. |
+| Hinge                         | It is intended for use with binary classi­fic­ation where the target values are in the set {-1, 1}. |
+| SquaredHinge                  | If using a hinge loss does result in better perfor­mance on a given binary classi­fic­ation problem, is likely that a squared hinge loss may be approp­riate. |
+| CategoricalCrossEntropy       | Default loss function to use for multi-­class classi­fic­ation problems. |
+| SparseCategoricalCrossEntropy | Sparse cross-­entropy addresses the one hot encoding frustr­ation by performing the same cross-­entropy calcul­ation of error, without requiring that the target variable be one hot encoded prior to training. |
+| KLD                           | KL divergence loss function is more commonly used when using models that learn to approx­imate a more complex function than simply multi-­class classi­fic­ation, such as in the case of an autoen­coder used for learning a dense feature repres­ent­ation under a model that must recons­truct the original input. |
+
+<a name="parameters"/>
+
+### Hyperparameters
+
+| Parameter       | Tips                                                         |
+| --------------- | ------------------------------------------------------------ |
+| Hidden Neurons  | The number of hidden neurons should be between the size of the input layer and the size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer. |
+| Learning Rate   | [0.1, 0.01, 0.001, 0.0001]                                   |
+| Momentum        | [0.5, 0.9, 0.99]                                             |
+| Batch Size      | Small values give a learning process that converges quickly at the cost of noise in the training process. Large values give a learning process that converges slowly with accurate estimates of the error gradient. The typical sizes are [32, 64, 128, 256, 512] |
+| Conv2D Filters  | Earlier 2D convol­utional layers, closer to the input, learn less filters, while later convol­utional layers, closer to the output, learn more filters. The number of filters you select should depend on the complexity of your dataset and the depth of your neural network. A common setting to start with is [32, 64, 128] for three layers, and if there are more layers, increasing to [256, 512, 1024], etc. |
+| Kernel Size     | (3, 3)                                                       |
+| Steps per Epoch | train_­length // batch_size                                  |
+| Epoch           | Use callbacks                                                |
+
+<a name="preprocessing"/>
+
+### Preprocessing
+
+| Method             | Usage                                                        |
+| ------------------ | ------------------------------------------------------------ |
+| ImageDataGenerator | Generate batches of tensor image data with real-time data augmen­tation. |
+
+<a name="callbacks"/>
+
+### Callbacks
+
+| Method | Usage |
+| ------ | ----- |
+|        |       |
+
+<a name="architectures"/>
+
+### Architectures
+
+| Name    | Usage |
+| ------- | ----- |
+| ConvNet |       |
+
+<a name="aarchitectures"/>
+
+### Advanced Architectures
+
+| Name | Usage |
+| ---- | ----- |
+|      |       |
 
