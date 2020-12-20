@@ -108,7 +108,7 @@
 
 ### Callbacks
 
-| Method | Usage |
+| Method | Code |
 | ------ | ----- |
 |        |       |
 
