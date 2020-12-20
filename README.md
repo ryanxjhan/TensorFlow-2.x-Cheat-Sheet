@@ -1,6 +1,6 @@
 # TensorFlow Cheat Sheet
 
-(Ryan Han)[https://www.linkedin.com/in/ryanxjhan/]
+[LinkedIn](https://www.linkedin.com/in/ryanxjhan/)
 
 ### Table of Contents
 
