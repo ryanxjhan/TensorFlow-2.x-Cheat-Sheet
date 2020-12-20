@@ -111,6 +111,8 @@
 
 ### Callbacks
 
+**on_epoch_end**
+
 ```python
 import tensorflow as tf
 
