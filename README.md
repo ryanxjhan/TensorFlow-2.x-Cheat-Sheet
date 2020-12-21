@@ -301,7 +301,7 @@ model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 
 ### Architectures
 
-| Name    | Architecture |
+| Name    | Layers |
 | ------- | ----- |
 | ConvNet | Convolution + ReLU, MaxPooling, Flatten, Dense |
 
