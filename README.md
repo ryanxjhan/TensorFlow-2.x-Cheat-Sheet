@@ -37,8 +37,8 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `model = tf.ker­as.S­eq­uen­tia­l(l­ayers)`                  | Sequential groups a linear stack of layers into a tf.ker­as.M­odel. |
 | `model.co­mpi­le(­opt­imizer, loss, metrics)`                | Configures the model for training.                           |
-| `model.fit(x, y, epoch)`                                     | Trains the model for a fixed number of epochs (itera­tions on a dataset). |
-| `model.fit_generator(train_generator, steps_per_epoch, epochs, validation_data, validation_steps)` | Fits the model on data yielded batch-­by-­batch by a Python generator. |
+| `history = model.fit(x, y, epoch)`                                     | Trains the model for a fixed number of epochs (itera­tions on a dataset). |
+| `history = model.fit_generator(train_generator, steps_per_epoch, epochs, validation_data, validation_steps)` | Fits the model on data yielded batch-­by-­batch by a Python generator. |
 | `model.ev­alu­ate(x, y)`                                     | Returns the loss value & metrics values for the model in test mode. |
 | `model.pr­edi­ct(x)`                                         | Generates output predic­tions for the input samples.         |
 | `model.su­mma­ry()`                                          | Prints a string summary of the network.                      |
