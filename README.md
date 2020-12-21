@@ -12,6 +12,7 @@
 * [Hyperparameters](#parameters)
 * [Preprocessing](#preprocessing)
 * [I/O](#io)
+* [Plotting](#plotting)
 * [Callbacks](#callbacks)
 * [Architectures](#architectures)
 * [Advanced Architectures](#aarchitectuers)
