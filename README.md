@@ -111,7 +111,7 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # All images will be rescaled by 1./255
-train_datagen = ImageDataGenerator(rescale=1/255)
+train_datagen = ImageDataGenerator(rescale=1./255)
 validation_datagen = ImageDataGenerator(rescale=1/255)
 
 # Flow training images in batches of 128 using train_datagen generator
