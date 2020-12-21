@@ -14,7 +14,7 @@
 * [I/O](#io)
 * [Plotting](#plotting)
 * [Callbacks](#callbacks)
-* [Architectures](#architectures)
+* [Common Architectures](#architectures)
 * [Advanced Architectures](#aarchitectuers)
 
 
@@ -299,7 +299,7 @@ model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 
 <a name="architectures"/>
 
-### Architectures
+### Common Architectures
 
 | Name    | Layers |
 | ------- | ----- |
