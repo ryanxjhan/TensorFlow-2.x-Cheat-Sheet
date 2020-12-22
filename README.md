@@ -331,6 +331,7 @@ model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 
 | Name    | Layers |
 | ------- | ----- |
+| DNN     | Dense |
 | ConvNet | Convolution + ReLU, MaxPooling, Flatten, Dense |
 
 <a name="aarchitectures"/>
