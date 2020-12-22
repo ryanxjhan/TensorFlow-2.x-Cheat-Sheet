@@ -15,6 +15,8 @@
 * [I/O](#io)
 * [Plotting](#plotting)
 * [Callbacks](#callbacks)
+* [Transfer Learning](#transfer)
+* [Overfitting](#overfit)
 * [Common Architectures](#architectures)
 * [Advanced Architectures](#aarchitectuers)
 
@@ -29,7 +31,8 @@
 | Dense        | `tf.keras.layers.Dense(units, activation, input_shape)`      | Dense layer is the regular deeply connected neural network layer. It is most common and frequently used layer. |
 | Flatten      | `tf.keras.layers.Flatten()`                                  | Flatten is used to flatten the input. For example, if flatten is applied to layer having input shape as (batch­_size, 2,2), then the output shape of the layer will be (batch­_size, 4). |
 | Conv2D       | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)` | Filter for two-di­men­sional image data.                     |
-| MaxPooling2D | `tf.keras.layers.MaxPool2D(pool_size)`                          | Max pooling for two-di­men­sional image data.                |
+| MaxPooling2D | `tf.keras.layers.MaxPool2D(pool_size)`                       | Max pooling for two-di­men­sional image data.                |
+| Dropout      | `tf.keras.layers.Dropout(rate)`                              | The Dropout layer randomly sets input units to 0 with a frequency of `rate` at each step during training time, which helps prevent overfitting. |
 
 <a name="models"/>
 
@@ -323,7 +326,65 @@ model.compile(optimizer=tf.optimizers.Adam(),
 model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 ```
 
+<a name="transfer"/>
 
+### Transfer Learning
+
+```python
+import os
+
+from tensorflow.keras import layers
+from tensorflow.keras import Model
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+
+local_weights_file = '/tmp/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5'
+
+pre_trained_model = InceptionV3(input_shape = (150, 150, 3), 
+                                include_top = False, 
+                                weights = None)
+
+pre_trained_model.load_weights(local_weights_file)
+
+for layer in pre_trained_model.layers:
+  layer.trainable = False
+  
+# pre_trained_model.summary()
+
+last_layer = pre_trained_model.get_layer('mixed7')
+print('last layer output shape: ', last_layer.output_shape)
+last_output = last_layer.output
+
+from tensorflow.keras.optimizers import RMSprop
+
+# Flatten the output layer to 1 dimension
+x = layers.Flatten()(last_output)
+# Add a fully connected layer with 1,024 hidden units and ReLU activation
+x = layers.Dense(1024, activation='relu')(x)
+# Add a dropout rate of 0.2
+x = layers.Dropout(0.2)(x)                  
+# Add a final sigmoid layer for classification
+x = layers.Dense  (1, activation='sigmoid')(x)           
+
+model = Model( pre_trained_model.input, x) 
+
+model.compile(optimizer = RMSprop(lr=0.0001), 
+              loss = 'binary_crossentropy', 
+              metrics = ['accuracy'])
+```
+
+<a name="overfit"/>
+
+### Overfitting
+
+* **[Augmentation](#preprocessing)** 
+
+* **Reduce Model Complexity**
+  * Reduce overfitting by training the network on more examples.
+  * Reduce overfitting by changing the complexity of the network (network sturcture and network parameters).
+
+* **Regularization**
+
+* **Dropout Layer**
 
 <a name="architectures"/>
 
