@@ -11,6 +11,7 @@
 * [Loss Functions](#loss)
 * [Hyperparameters](#parameters)
 * [Preprocessing](#preprocessing)
+* [Metrics](#metrics)
 * [I/O](#io)
 * [Plotting](#plotting)
 * [Callbacks](#callbacks)
@@ -19,7 +20,7 @@
 
 
 
-<a name="headers"/>
+<a name="layers"/>
 
 ### Layers
 
@@ -137,6 +138,21 @@ validation_generator = validation_datagen.flow_from_directory(
         batch_size=32,
         # Since we use binary_crossentropy loss, we need binary labels
         class_mode='binary')
+```
+
+<a name="metrics"/>
+
+**F1-Score**
+
+```python
+def f1_score(y_true, y_pred):
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+    predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
+    precision = true_positives / (predicted_positives + K.epsilon())
+    recall = true_positives / (possible_positives + K.epsilon())
+    f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
+    return f1_val
 ```
 
 <a name="io"/>
