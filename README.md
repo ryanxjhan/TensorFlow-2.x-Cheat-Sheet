@@ -142,6 +142,8 @@ validation_generator = validation_datagen.flow_from_directory(
 
 <a name="metrics"/>
 
+### Metrics
+
 **F1-Score**
 
 ```python
