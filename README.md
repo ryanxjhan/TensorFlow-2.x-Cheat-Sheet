@@ -26,13 +26,15 @@
 
 ### Layers
 
-| Layers       | Code                                                         | Usage                                                        |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Dense        | `tf.keras.layers.Dense(units, activation, input_shape)`      | Dense layer is the regular deeply connected neural network layer. It is most common and frequently used layer. |
-| Flatten      | `tf.keras.layers.Flatten()`                                  | Flatten is used to flatten the input. For example, if flatten is applied to layer having input shape as (batch­_size, 2,2), then the output shape of the layer will be (batch­_size, 4). |
-| Conv2D       | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)` | Filter for two-di­men­sional image data.                     |
-| MaxPooling2D | `tf.keras.layers.MaxPool2D(pool_size)`                       | Max pooling for two-di­men­sional image data.                |
-| Dropout      | `tf.keras.layers.Dropout(rate)`                              | The Dropout layer randomly sets input units to 0 with a frequency of `rate` at each step during training time, which helps prevent overfitting. |
+| Layers                 | Code                                                         | Usage                                                        |
+| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Dense                  | `tf.keras.layers.Dense(units, activation, input_shape)`      | Dense layer is the regular deeply connected neural network layer. It is most common and frequently used layer. |
+| Flatten                | `tf.keras.layers.Flatten()`                                  | Flattens the input.                                          |
+| Conv2D                 | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)` | 2D convolution layer for two-di­men­sional data.             |
+| MaxPooling2D           | `tf.keras.layers.MaxPool2D(pool_size)`                       | Max pooling for two-di­men­sional data.                      |
+| Dropout                | `tf.keras.layers.Dropout(rate)`                              | The Dropout layer randomly sets input units to 0 with a frequency of `rate` at each step during training time, which helps prevent overfitting. |
+| Embedding              | `tf.keras.layers.Embedding(input_dim, output_dim, input_length)` | The Embedding layer is initialized with random weights and will learn an embedding for all of the words in the dataset. |
+| GlobalAveragePooling1D | `tf.keras.layers.GlobalAveragePooling1D()`                   | Global average pooling operation for temporal data.          |
 
 <a name="models"/>
 
@@ -93,17 +95,20 @@
 
 ### Hyperparameters
 
-| Parameter       | Tips                                                         |
-| --------------- | ------------------------------------------------------------ |
-| Hidden Neurons  | The number of hidden neurons should be between the size of the input layer and the size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer. |
-| Learning Rate   | [0.1, 0.01, 0.001, 0.0001]                                   |
-| Momentum        | [0.5, 0.9, 0.99]                                             |
-| Batch Size      | Small values give a learning process that converges quickly at the cost of noise in the training process. Large values give a learning process that converges slowly with accurate estimates of the error gradient. The typical sizes are [32, 64, 128, 256, 512] |
-| Conv2D Filters  | Earlier 2D convol­utional layers, closer to the input, learn less filters, while later convol­utional layers, closer to the output, learn more filters. The number of filters you select should depend on the complexity of your dataset and the depth of your neural network. A common setting to start with is [32, 64, 128] for three layers, and if there are more layers, increasing to [256, 512, 1024], etc. |
-| Kernel Size     | (3, 3)                                                       |
-| Pool Size       | (2, 2)                                                       |
-| Steps per Epoch | train_­length // batch_size                                  |
-| Epoch           | Use callbacks                                                |
+| Parameter            | Tips                                                         |
+| -------------------- | ------------------------------------------------------------ |
+| Hidden Neurons       | The number of hidden neurons should be between the size of the input layer and the size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer. |
+| Learning Rate        | [0.1, 0.01, 0.001, 0.0001]                                   |
+| Momentum             | [0.5, 0.9, 0.99]                                             |
+| Batch Size           | Small values give a learning process that converges quickly at the cost of noise in the training process. Large values give a learning process that converges slowly with accurate estimates of the error gradient. The typical sizes are [32, 64, 128, 256, 512] |
+| Conv2D Filters       | Earlier 2D convol­utional layers, closer to the input, learn less filters, while later convol­utional layers, closer to the output, learn more filters. The number of filters you select should depend on the complexity of your dataset and the depth of your neural network. A common setting to start with is [32, 64, 128] for three layers, and if there are more layers, increasing to [256, 512, 1024], etc. |
+| Kernel Size          | (3, 3)                                                       |
+| Pool Size            | (2, 2)                                                       |
+| Steps per Epoch      | sample_size // batch_size                                    |
+| Epoch                | Use callbacks                                                |
+| Embedding Dimensions | vocab_size ** 0.25                                           |
+| Truncating           | `post`                                                       |
+| OOV Token            | `<OOV>`                                                      |
 
 <a name="preprocessing"/>
 
