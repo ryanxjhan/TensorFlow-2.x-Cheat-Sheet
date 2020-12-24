@@ -19,6 +19,7 @@
 * [Overfitting](#overfit)
 * [Common Architectures](#architectures)
 * [Advanced Architectures](#aarchitectuers)
+* [TensorFlow Data Services](#data)
 
 
 
@@ -436,3 +437,8 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 | ---- | ----- |
 |      |       |
 
+<a name="data"/>
+
+### TensorFlow Data Services
+
+TensorFlow Datasets is a collection of datasets ready to use, with TensorFlow or other Python ML frameworks, such as Jax. All datasets are exposed as [`tf.data.Datasets`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset), enabling easy-to-use and high-performance input pipelines. To get started see the [guide](https://www.tensorflow.org/datasets/overview) and our [list of datasets](https://www.tensorflow.org/datasets/catalog).
