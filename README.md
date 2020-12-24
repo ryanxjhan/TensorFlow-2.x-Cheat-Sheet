@@ -12,7 +12,6 @@
 * [Hyperparameters](#parameters)
 * [Preprocessing](#preprocessing)
 * [Metrics](#metrics)
-* [I/O](#io)
 * [Plotting](#plotting)
 * [Callbacks](#callbacks)
 * [Transfer Learning](#transfer)
@@ -194,25 +193,6 @@ def f1_score(y_true, y_pred):
     recall = true_positives / (possible_positives + K.epsilon())
     f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
     return f1_val
-```
-
-<a name="io"/>
-
-### I/O
-
-**zip files** 
-
-```python
-import os
-import zipfile
-
-local_zip = '/tmp/horse-or-human.zip'
-zip_ref = zipfile.ZipFile(local_zip, 'r')
-zip_ref.extractall('/tmp/horse-or-human')
-local_zip = '/tmp/validation-horse-or-human.zip'
-zip_ref = zipfile.ZipFile(local_zip, 'r')
-zip_ref.extractall('/tmp/validation-horse-or-human')
-zip_ref.close()
 ```
 
 <a name="plotting"/>
