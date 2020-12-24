@@ -16,8 +16,6 @@
 * [Callbacks](#callbacks)
 * [Transfer Learning](#transfer)
 * [Overfitting](#overfit)
-* [Common Architectures](#architectures)
-* [Advanced Architectures](#aarchitectuers)
 * [TensorFlow Data Services](#data)
 
 
@@ -406,21 +404,6 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 * **Dropout Layer**
 
 <a name="architectures"/>
-
-### Common Architectures
-
-| Name    | Layers |
-| ------- | ----- |
-| DNN/FFNN | Dense |
-| CNN     | Convolution + ReLU, MaxPooling, Flatten, Dense |
-
-<a name="aarchitectures"/>
-
-### Advanced Architectures
-
-| Name | Usage |
-| ---- | ----- |
-|      |       |
 
 <a name="data"/>
 
