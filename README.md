@@ -12,7 +12,7 @@
 * [Hyperparameters](#parameters)
 * [Preprocessing](#preprocessing)
 * [Metrics](#metrics)
-* [Plotting](#plotting)
+* [Visualization](#viz)
 * [Callbacks](#callbacks)
 * [Transfer Learning](#transfer)
 * [Overfitting](#overfit)
@@ -195,9 +195,9 @@ def f1_score(y_true, y_pred):
     return f1_val
 ```
 
-<a name="plotting"/>
+<a name="viz"/>
 
-### Plotting
+### Visualization
 
 **Accuracy and Loss**
 
