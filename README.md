@@ -181,6 +181,12 @@ print(padded)
 
 ```
 
+**One-hot Encoding**
+
+```python
+ys = tf.keras.utils.to_categorical(labels, num_classes=3)
+```
+
 
 
 <a name="metrics"/>
