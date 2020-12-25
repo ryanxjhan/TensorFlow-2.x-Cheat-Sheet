@@ -168,13 +168,17 @@ sentences = [
 ]
 
 tokenizer = Tokenizer(num_words = 100, oov_token="<OOV>")
+
 # Key value pair (word: token)
 tokenizer.fit_on_texts(sentences)
 word_index = tokenizer.word_index
 
+# Lists of tokenized sentences
 sequences = tokenizer.texts_to_sequences(sentences)
 
+# Padded tokenized sentences
 padded = pad_sequences(sequences, maxlen=5)
+
 print("\nWord Index = " , word_index)
 print("\nSequences = " , sequences)
 print("\nPadded Sequences:")
