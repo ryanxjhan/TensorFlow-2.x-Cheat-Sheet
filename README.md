@@ -17,6 +17,7 @@
 * [Transfer Learning](#transfer)
 * [Overfitting](#overfit)
 * [TensorFlow Data Services](#data)
+* [Examples](#examples)
 
 
 
@@ -28,11 +29,14 @@
 | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Dense                  | `tf.keras.layers.Dense(units, activation, input_shape)`      | Dense layer is the regular deeply connected neural network layer. It is most common and frequently used layer. |
 | Flatten                | `tf.keras.layers.Flatten()`                                  | Flattens the input.                                          |
-| Conv2D                 | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)` | 2D convolution layer for two-di­men­sional data.             |
+| Conv2D                 | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)` | Convolution layer for two-di­men­sional data such as images. |
 | MaxPooling2D           | `tf.keras.layers.MaxPool2D(pool_size)`                       | Max pooling for two-di­men­sional data.                      |
 | Dropout                | `tf.keras.layers.Dropout(rate)`                              | The Dropout layer randomly sets input units to 0 with a frequency of `rate` at each step during training time, which helps prevent overfitting. |
 | Embedding              | `tf.keras.layers.Embedding(input_dim, output_dim, input_length)` | The Embedding layer is initialized with random weights and will learn an embedding for all of the words in the dataset. |
 | GlobalAveragePooling1D | `tf.keras.layers.GlobalAveragePooling1D()`                   | Global average pooling operation for temporal data.          |
+| Bidirectional LSTM     | `tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(units, return_sequence))` | Bidirectional Long Short-Term Memory layer                   |
+| Conv1D                 | `tf.keras.layers.Conv1D(filters, kernel_size, activation, input_shape)` | Convolution layer for one-dimentional data such as word embeddings. |
+| Bidirectional GRU      | `tf.keras.layers.Bidirectional(tf.keras.layers.GRU(units))`  | Bidirectional Gated Recurrent Unit                           |
 
 <a name="models"/>
 
@@ -410,3 +414,8 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 ### TensorFlow Data Services
 
 TensorFlow Datasets is a collection of datasets ready to use, with TensorFlow or other Python ML frameworks, such as Jax. All datasets are exposed as [`tf.data.Datasets`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset), enabling easy-to-use and high-performance input pipelines. To get started see the [guide](https://www.tensorflow.org/datasets/overview) and our [list of datasets](https://www.tensorflow.org/datasets/catalog).
+
+<a name="examples"/>
+
+### Examples
+
