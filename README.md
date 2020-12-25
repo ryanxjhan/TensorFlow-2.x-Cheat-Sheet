@@ -168,6 +168,7 @@ sentences = [
 ]
 
 tokenizer = Tokenizer(num_words = 100, oov_token="<OOV>")
+# Key value pair (word: token)
 tokenizer.fit_on_texts(sentences)
 word_index = tokenizer.word_index
 
