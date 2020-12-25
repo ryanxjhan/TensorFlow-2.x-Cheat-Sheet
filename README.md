@@ -99,11 +99,11 @@
 
 | Parameter            | Tips                                                         |
 | -------------------- | ------------------------------------------------------------ |
-| Hidden Neurons       | The number of hidden neurons should be between the size of the input layer and the size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer. |
+| Hidden Neurons       | The size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer. |
 | Learning Rate        | [0.1, 0.01, 0.001, 0.0001]                                   |
 | Momentum             | [0.5, 0.9, 0.99]                                             |
 | Batch Size           | Small values give a learning process that converges quickly at the cost of noise in the training process. Large values give a learning process that converges slowly with accurate estimates of the error gradient. The typical sizes are [32, 64, 128, 256, 512] |
-| Conv2D Filters       | Earlier 2D convol­utional layers, closer to the input, learn less filters, while later convol­utional layers, closer to the output, learn more filters. The number of filters you select should depend on the complexity of your dataset and the depth of your neural network. A common setting to start with is [32, 64, 128] for three layers, and if there are more layers, increasing to [256, 512, 1024], etc. |
+| Conv2D Filters       | Earlier 2D convolutional layers, closer to the input, learn less filters, while later convolutional layers, closer to the output, learn more filters. The number of filters you select should depend on the complexity of your dataset and the depth of your neural network. A common setting to start with is [32, 64, 128] for three layers, and if there are more layers, increasing to [256, 512, 1024], etc. |
 | Kernel Size          | (3, 3)                                                       |
 | Pool Size            | (2, 2)                                                       |
 | Steps per Epoch      | sample_size // batch_size                                    |
