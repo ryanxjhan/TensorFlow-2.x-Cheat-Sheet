@@ -48,13 +48,15 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `model = tf.ker­as.S­eq­uen­tia­l(l­ayers)`                  | Sequential groups a linear stack of layers into a tf.ker­as.M­odel. |
 | `model.co­mpi­le(­opt­imizer, loss, metrics)`                | Configures the model for training.                           |
-| `history = model.fit(x, y, epoch)`                                     | Trains the model for a fixed number of epochs (itera­tions on a dataset). |
+| `history = model.fit(x, y, epoch)`                           | Trains the model for a fixed number of epochs (itera­tions on a dataset). |
 | `history = model.fit_generator(train_generator, steps_per_epoch, epochs, validation_data, validation_steps)` | Fits the model on data yielded batch-­by-­batch by a Python generator. |
 | `model.ev­alu­ate(x, y)`                                     | Returns the loss value & metrics values for the model in test mode. |
 | `model.pr­edi­ct(x)`                                         | Generates output predic­tions for the input samples.         |
 | `model.su­mma­ry()`                                          | Prints a string summary of the network.                      |
 | `model.save(path)`                                           | Saves a model as a TensorFlow SavedModel or HDF5 file.       |
 | `model.stop_training`                                        | Stops training when true.                                    |
+| `model.save('path/my_model.h5')`                             | Save a model in HDF5 format.                                 |
+| `new_model = tf.keras.models.load_model('path/my_model.h5')` | Reload a fresh Keras model from the saved model.             |
 
 <a name="activations"/>
 
@@ -344,27 +346,6 @@ optimizer = tf.keras.optimizers.SGD(lr=1e-8, momentum=0.9)
 model.compile(loss="mse", optimizer=optimizer)
 history = model.fit(dataset, epochs=100, callbacks=[lr_schedule], verbose=0)
 ```
-
-**Model Check Point**
-
-```python
-checkpoint_path = "training_1/cp.ckpt"
-checkpoint_dir = os.path.dirname(checkpoint_path)
-
-# Create a callback that saves the model's weights
-cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
-                                                 save_weights_only=True,
-                                                 verbose=1)
-
-# Train the model with the new callback
-model.fit(train_images, 
-          train_labels,  
-          epochs=10,
-          validation_data=(test_images, test_labels),
-          callbacks=[cp_callback])  # Pass callback to training
-```
-
-
 
 **End of Training Cycles**
 
