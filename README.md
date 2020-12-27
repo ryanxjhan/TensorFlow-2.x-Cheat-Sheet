@@ -447,5 +447,8 @@ TensorFlow Datasets is a collection of datasets ready to use, with TensorFlow or
 
 ### Examples
 
-[Time Series Forecasting](Examples/TimeSeriesForecasting.ipynb)
+[Cats or Dogs](Examples/CatsDogs.ipynb)
+[Sarcasm Classification](Examples/SarcasmClassification.ipynb)
+[Text Generation](Examples/TextGeneration.ipynb)
+[Sunspots Forecasting](Examples/SunspotsForecasting.ipynb)
 
