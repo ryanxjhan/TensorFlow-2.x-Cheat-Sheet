@@ -1,4 +1,4 @@
-# TensorFlow Cheat Sheet
+# TensorFlow 2.x Cheat Sheet
 
 <a href="https://www.linkedin.com/in/ryanxjhan/" target="_blank">LinkedIn</a>
 
