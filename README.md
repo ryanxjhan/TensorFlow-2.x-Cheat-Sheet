@@ -325,6 +325,10 @@ for layer_name, feature_map in zip(layer_names, successive_feature_maps):
     plt.imshow( display_grid, aspect='auto', cmap='viridis' ) 
 ```
 
+<a name="callbacks"/>
+
+### Callbacks
+
 **Learning Rate Scheduler**
 
 ```python
@@ -341,11 +345,28 @@ model.compile(loss="mse", optimizer=optimizer)
 history = model.fit(dataset, epochs=100, callbacks=[lr_schedule], verbose=0)
 ```
 
-<a name="callbacks"/>
+**Model Check Point**
 
-### Callbacks
+```python
+checkpoint_path = "training_1/cp.ckpt"
+checkpoint_dir = os.path.dirname(checkpoint_path)
 
-**on_epoch_end**
+# Create a callback that saves the model's weights
+cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
+                                                 save_weights_only=True,
+                                                 verbose=1)
+
+# Train the model with the new callback
+model.fit(train_images, 
+          train_labels,  
+          epochs=10,
+          validation_data=(test_images, test_labels),
+          callbacks=[cp_callback])  # Pass callback to training
+```
+
+
+
+**End of Training Cycles**
 
 ```python
 import tensorflow as tf
@@ -374,6 +395,8 @@ model.compile(optimizer=tf.optimizers.Adam(),
 
 model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 ```
+
+
 
 <a name="transfer"/>
 
