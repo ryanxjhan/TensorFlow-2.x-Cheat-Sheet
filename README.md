@@ -40,6 +40,8 @@
 | Simple RNN             | `tf.keras.layers.SimpleRNN(units, activation, return sequences, input_shape)` | Fully-connected RNN where the output is to be fed back to input. |
 | Lambda                 | `tf.keras.layers.Lambda(function)`                           | Wraps arbitrary expressions as a `Layer` object.             |
 
+
+
 <a name="models"/>
 
 ### Models
@@ -58,6 +60,8 @@
 | `model.save('path/my_model.h5')`                             | Save a model in HDF5 format.                                 |
 | `new_model = tf.keras.models.load_model('path/my_model.h5')` | Reload a fresh Keras model from the saved model.             |
 
+
+
 <a name="activations"/>
 
 ### Activation Functions
@@ -68,6 +72,8 @@
 | sigmoid | binary classi­fic­ation.                  |
 | tanh    | faster conver­gence than sigmoid.         |
 | softmax | multiclass classi­fic­ation.              |
+
+
 
 <a name="optimizers"/>
 
@@ -80,6 +86,8 @@
 | AdaGrad  | Adagrad can be useful for sparse data such as tf-idf.        |
 | AdaDelta | Extension of AdaGrad which tends to remove the decaying learning Rate problem of it. |
 | RMSprop  | Very similar to AdaDelta.                                    |
+
+
 
 <a name="loss"/>
 
@@ -97,6 +105,8 @@
 | SparseCategoricalCrossEntropy | Sparse cross-­entropy addresses the one hot encoding frustr­ation by performing the same cross-­entropy calcul­ation of error, without requiring that the target variable be one hot encoded prior to training. |
 | KLD                           | KL divergence loss function is more commonly used when using models that learn to approx­imate a more complex function than simply multi-­class classi­fic­ation, such as in the case of an autoen­coder used for learning a dense feature repres­ent­ation under a model that must recons­truct the original input. |
 | Huber                         | Less sensitive to outliers                                   |
+
+
 
 <a name="parameters"/>
 
@@ -116,6 +126,8 @@
 | Embedding Dimensions | vocab_size ** 0.25                                           |
 | Truncating           | `post`                                                       |
 | OOV Token            | `<OOV>`                                                      |
+
+
 
 <a name="preprocessing"/>
 
@@ -217,6 +229,8 @@ def f1_score(y_true, y_pred):
     f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
     return f1_val
 ```
+
+
 
 <a name="viz"/>
 
@@ -327,6 +341,8 @@ for layer_name, feature_map in zip(layer_names, successive_feature_maps):
     plt.imshow( display_grid, aspect='auto', cmap='viridis' ) 
 ```
 
+
+
 <a name="callbacks"/>
 
 ### Callbacks
@@ -425,6 +441,8 @@ model.compile(optimizer = RMSprop(lr=0.0001),
               metrics = ['accuracy'])
 ```
 
+
+
 <a name="overfit"/>
 
 ### Overfitting
@@ -441,11 +459,15 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 
 <a name="architectures"/>
 
+
+
 <a name="data"/>
 
 ### TensorFlow Data Services
 
 TensorFlow Datasets is a collection of datasets ready to use, with TensorFlow or other Python ML frameworks, such as Jax. All datasets are exposed as [`tf.data.Datasets`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset), enabling easy-to-use and high-performance input pipelines. To get started see the [guide](https://www.tensorflow.org/datasets/overview) and our [list of datasets](https://www.tensorflow.org/datasets/catalog).
+
+
 
 <a name="examples"/>
 
