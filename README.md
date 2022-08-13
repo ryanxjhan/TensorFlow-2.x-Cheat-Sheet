@@ -16,6 +16,7 @@
 * [Callbacks](#callbacks)
 * [Transfer Learning](#transfer)
 * [Overfitting](#overfit)
+* [Unstable Gradient](#unstable)
 * [TensorFlow Data Services](#data)
 * [Examples](#examples)
 
@@ -458,6 +459,16 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 * **Dropout Layer**
 
 <a name="architectures"/>
+
+
+<a name="unstable"/>
+
+### Unstable Gradient
+
+* Proper initialization of weights: special initial distribution, reusing pretrained layers, etc
+* Nonsaturating activation functions: Leaky ReLU, exponential LU (ELU), etc.
+* Batch normalization: scale inputs before each layer during training
+* Gradient cipping: set a threshold for the gradient
 
 
 
