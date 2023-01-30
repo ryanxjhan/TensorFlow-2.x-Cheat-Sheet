@@ -9,13 +9,13 @@
 * [Activation Functions](#activations)
 * [Optimizers](#optimizers)
 * [Loss Functions](#loss)
-* [Hyperparameters](#parameters)
+* [Hyper-parameters](#parameters)
 * [Preprocessing](#preprocessing)
 * [Metrics](#metrics)
 * [Visualizations](#viz)
 * [Callbacks](#callbacks)
 * [Transfer Learning](#transfer)
-* [Overfitting](#overfit)
+* [Over-fitting](#overfit)
 * [Unstable Gradient](#unstable)
 * [TensorFlow Data Services](#data)
 * [Examples](#examples)
@@ -26,20 +26,20 @@
 
 ### Layers
 
-| Layers                 | Code                                                         | Usage                                                        |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Dense                  | `tf.keras.layers.Dense(units, activation, input_shape)`      | Dense layer is the regular deeply connected neural network layer. It is most common and frequently used layer. |
-| Flatten                | `tf.keras.layers.Flatten()`                                  | Flattens the input.                                          |
-| Conv2D                 | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)` | Convolution layer for two-di­men­sional data such as images. |
-| MaxPooling2D           | `tf.keras.layers.MaxPool2D(pool_size)`                       | Max pooling for two-di­men­sional data.                      |
-| Dropout                | `tf.keras.layers.Dropout(rate)`                              | The Dropout layer randomly sets input units to 0 with a frequency of `rate` at each step during training time, which helps prevent overfitting. |
-| Embedding              | `tf.keras.layers.Embedding(input_dim, output_dim, input_length)` | The Embedding layer is initialized with random weights and will learn an embedding for all of the words in the dataset. |
-| GlobalAveragePooling1D | `tf.keras.layers.GlobalAveragePooling1D()`                   | Global average pooling operation for temporal data.          |
-| Bidirectional LSTM     | `tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(units, return_sequence))` | Bidirectional Long Short-Term Memory layer                   |
-| Conv1D                 | `tf.keras.layers.Conv1D(filters, kernel_size, activation, input_shape)` | Convolution layer for one-dimentional data such as word embeddings. |
-| Bidirectional GRU      | `tf.keras.layers.Bidirectional(tf.keras.layers.GRU(units))`  | Bidirectional Gated Recurrent Unit                           |
-| Simple RNN             | `tf.keras.layers.SimpleRNN(units, activation, return sequences, input_shape)` | Fully-connected RNN where the output is to be fed back to input. |
-| Lambda                 | `tf.keras.layers.Lambda(function)`                           | Wraps arbitrary expressions as a `Layer` object.             |
+| Layers                 | Code                                                                          | Usage                                                                                                                                            |
+|------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dense                  | `tf.keras.layers.Dense(units, activation, input_shape)`                       | Dense layer is the regular deeply connected neural network layer. It is most common and frequently used layer.                                   |
+| Flatten                | `tf.keras.layers.Flatten()`                                                   | Flattens the input.                                                                                                                              |
+| Conv2D                 | `tf.keras.layers.Conv2D(filters, kernel_size, activation, input_shape)`       | Convolution layer for two-dimensional data such as images.                                                                                       |
+| MaxPooling2D           | `tf.keras.layers.MaxPool2D(pool_size)`                                        | Max pooling for two-dimensional data.                                                                                                            |
+| Dropout                | `tf.keras.layers.Dropout(rate)`                                               | The Dropout layer randomly sets input units to 0 with a frequency of `rate` at each step during training time, which helps prevent over-fitting. |
+| Embedding              | `tf.keras.layers.Embedding(input_dim, output_dim, input_length)`              | The Embedding layer is initialized with random weights and will learn an embedding for all of the words in the dataset.                          |
+| GlobalAveragePooling1D | `tf.keras.layers.GlobalAveragePooling1D()`                                    | Global average pooling operation for temporal data.                                                                                              |
+| Bidirectional LSTM     | `tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(units, return_sequence))` | Bidirectional Long Short-Term Memory layer                                                                                                       |
+| Conv1D                 | `tf.keras.layers.Conv1D(filters, kernel_size, activation, input_shape)`       | Convolution layer for one-dimensional data such as word embeddings.                                                                              |
+| Bidirectional GRU      | `tf.keras.layers.Bidirectional(tf.keras.layers.GRU(units))`                   | Bidirectional Gated Recurrent Unit                                                                                                               |
+| Simple RNN             | `tf.keras.layers.SimpleRNN(units, activation, return sequences, input_shape)` | Fully-connected RNN where the output is to be fed back to input.                                                                                 |
+| Lambda                 | `tf.keras.layers.Lambda(function)`                                            | Wraps arbitrary expressions as a `Layer` object.                                                                                                 |
 
 
 
@@ -47,19 +47,19 @@
 
 ### Models
 
-| Code                                                         | Usage                                                        |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `model = tf.ker­as.S­eq­uen­tia­l(l­ayers)`                  | Sequential groups a linear stack of layers into a tf.ker­as.M­odel. |
-| `model.co­mpi­le(­opt­imizer, loss, metrics)`                | Configures the model for training.                           |
-| `history = model.fit(x, y, epoch)`                           | Trains the model for a fixed number of epochs (itera­tions on a dataset). |
-| `history = model.fit_generator(train_generator, steps_per_epoch, epochs, validation_data, validation_steps)` | Fits the model on data yielded batch-­by-­batch by a Python generator. |
-| `model.ev­alu­ate(x, y)`                                     | Returns the loss value & metrics values for the model in test mode. |
-| `model.pr­edi­ct(x)`                                         | Generates output predic­tions for the input samples.         |
-| `model.su­mma­ry()`                                          | Prints a string summary of the network.                      |
-| `model.save(path)`                                           | Saves a model as a TensorFlow SavedModel or HDF5 file.       |
-| `model.stop_training`                                        | Stops training when true.                                    |
-| `model.save('path/my_model.h5')`                             | Save a model in HDF5 format.                                 |
-| `new_model = tf.keras.models.load_model('path/my_model.h5')` | Reload a fresh Keras model from the saved model.             |
+| Code                                                                                                         | Usage                                                                    |
+|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| `model = tf.keras.Sequential(layers)`                                                                        | Sequential groups a linear stack of layers into a tf.keras.Model.        |
+| `model.compile(optimizer, loss, metrics)`                                                                    | Configures the model for training.                                       |
+| `history = model.fit(x, y, epoch)`                                                                           | Trains the model for a fixed number of epochs (iterations on a dataset). |
+| `history = model.fit_generator(train_generator, steps_per_epoch, epochs, validation_data, validation_steps)` | Fits the model on data yielded batch-by-batch by a Python generator.     |
+| `model.evaluate(x, y)`                                                                                       | Returns the loss value & metrics values for the model in test mode.      |
+| `model.predict(x)`                                                                                           | Generates output predictions for the input samples.                      |
+| `model.summary()`                                                                                            | Prints a string summary of the network.                                  |
+| `model.save(path)`                                                                                           | Saves a model as a TensorFlow SavedModel or HDF5 file.                   |
+| `model.stop_training`                                                                                        | Stops training when true.                                                |
+| `model.save('path/my_model.h5')`                                                                             | Save a model in HDF5 format.                                             |
+| `new_model = tf.keras.models.load_model('path/my_model.h5')`                                                 | Reload a fresh Keras model from the saved model.                         |
 
 
 
@@ -68,11 +68,11 @@
 ### Activation Functions
 
 | Name    | Usage                                     |
-| ------- | ----------------------------------------- |
+|---------|-------------------------------------------|
 | relu    | the default activation for hidden layers. |
-| sigmoid | binary classi­fic­ation.                  |
-| tanh    | faster conver­gence than sigmoid.         |
-| softmax | multiclass classi­fic­ation.              |
+| sigmoid | binary classification.                    |
+| tanh    | faster convergence than sigmoid.          |
+| softmax | multiclass classification.                |
 
 
 
@@ -80,13 +80,13 @@
 
 ### Optimizers
 
-| Name     | Usage                                                        |
-| -------- | ------------------------------------------------------------ |
-| Adam     | Adam combines the good properties of Adadelta and RMSprop and hence tend to do better for most of the problems. |
-| SGD      | Stochastic gradient descent is very basic and works well for shallow networks. |
-| AdaGrad  | Adagrad can be useful for sparse data such as tf-idf.        |
-| AdaDelta | Extension of AdaGrad which tends to remove the decaying learning Rate problem of it. |
-| RMSprop  | Very similar to AdaDelta.                                    |
+| Name     | Usage                                                                                                            |
+|----------|------------------------------------------------------------------------------------------------------------------|
+| Adam     | Adam combines the good properties of Ada-delta and RMSprop and hence tend to do better for most of the problems. |
+| SGD      | Stochastic gradient descent is very basic and works well for shallow networks.                                   |
+| AdaGrad  | Ada-grad can be useful for sparse data such as tf-idf.                                                           |
+| AdaDelta | Extension of AdaGrad which tends to remove the decaying learning Rate problem of it.                             |
+| RMSprop  | Very similar to AdaDelta.                                                                                        |
 
 
 
@@ -94,39 +94,39 @@
 
 ### Loss Functions
 
-| Name                          | Usage                                                        |
-| ----------------------------- | ------------------------------------------------------------ |
-| MeanSquaredError              | Default loss function for regression problems.               |
-| MeanSquaredLogarithmicError   | For regression problems with large spread.                   |
-| MeanAbsoluteError             | More robust to outliers.                                     |
-| BinaryCrossEntropy            | Default loss function to use for binary classi­fic­ation problems. |
-| Hinge                         | It is intended for use with binary classi­fic­ation where the target values are in the set {-1, 1}. |
-| SquaredHinge                  | If using a hinge loss does result in better perfor­mance on a given binary classi­fic­ation problem, is likely that a squared hinge loss may be approp­riate. |
-| CategoricalCrossEntropy       | Default loss function to use for multi-­class classi­fic­ation problems. |
-| SparseCategoricalCrossEntropy | Sparse cross-­entropy addresses the one hot encoding frustr­ation by performing the same cross-­entropy calcul­ation of error, without requiring that the target variable be one hot encoded prior to training. |
-| KLD                           | KL divergence loss function is more commonly used when using models that learn to approx­imate a more complex function than simply multi-­class classi­fic­ation, such as in the case of an autoen­coder used for learning a dense feature repres­ent­ation under a model that must recons­truct the original input. |
-| Huber                         | Less sensitive to outliers                                   |
+| Name                          | Usage                                                                                                                                                                                                                                                                                                        |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MeanSquaredError              | Default loss function for regression problems.                                                                                                                                                                                                                                                               |
+| MeanSquaredLogarithmicError   | For regression problems with large spread.                                                                                                                                                                                                                                                                   |
+| MeanAbsoluteError             | More robust to outliers.                                                                                                                                                                                                                                                                                     |
+| BinaryCrossEntropy            | Default loss function to use for binary classification problems.                                                                                                                                                                                                                                             |
+| Hinge                         | It is intended for use with binary classification where the target values are in the set {-1, 1}.                                                                                                                                                                                                            |
+| SquaredHinge                  | If using a hinge loss does result in better performance on a given binary classification problem, is likely that a squared hinge loss may be appropriate.                                                                                                                                                    |
+| CategoricalCrossEntropy       | Default loss function to use for multi-class classification problems.                                                                                                                                                                                                                                        |
+| SparseCategoricalCrossEntropy | Sparse cross-entropy addresses the one hot encoding frustration by performing the same cross-entropy calculation of error, without requiring that the target variable be one hot encoded prior to training.                                                                                                  |
+| KLD                           | KL divergence loss function is more commonly used when using models that learn to approximate a more complex function than simply multi-class classification, such as in the case of an autoencoder used for learning a dense feature representation under a model that must reconstruct the original input. |
+| Huber                         | Less sensitive to outliers                                                                                                                                                                                                                                                                                   |
 
 
 
 <a name="parameters"/>
 
-### Hyperparameters
+### Hyper parameters
 
-| Parameter            | Tips                                                         |
-| -------------------- | ------------------------------------------------------------ |
-| Hidden Neurons       | The size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer. |
-| Learning Rate        | [0.1, 0.01, 0.001, 0.0001]                                   |
-| Momentum             | [0.5, 0.9, 0.99]                                             |
-| Batch Size           | Small values give a learning process that converges quickly at the cost of noise in the training process. Large values give a learning process that converges slowly with accurate estimates of the error gradient. The typical sizes are [32, 64, 128, 256, 512] |
+| Parameter            | Tips                                                                                                                                                                                                                                                                                                                                                                                                              |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hidden Neurons       | The size of the output layer, and 2/3 the size of the input layer, plus the size of the output layer.                                                                                                                                                                                                                                                                                                             |
+| Learning Rate        | [0.1, 0.01, 0.001, 0.0001]                                                                                                                                                                                                                                                                                                                                                                                        |
+| Momentum             | [0.5, 0.9, 0.99]                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Batch Size           | Small values give a learning process that converges quickly at the cost of noise in the training process. Large values give a learning process that converges slowly with accurate estimates of the error gradient. The typical sizes are [32, 64, 128, 256, 512]                                                                                                                                                 |
 | Conv2D Filters       | Earlier 2D convolutional layers, closer to the input, learn less filters, while later convolutional layers, closer to the output, learn more filters. The number of filters you select should depend on the complexity of your dataset and the depth of your neural network. A common setting to start with is [32, 64, 128] for three layers, and if there are more layers, increasing to [256, 512, 1024], etc. |
-| Kernel Size          | (3, 3)                                                       |
-| Pool Size            | (2, 2)                                                       |
-| Steps per Epoch      | sample_size // batch_size                                    |
-| Epoch                | Use callbacks                                                |
-| Embedding Dimensions | vocab_size ** 0.25                                           |
-| Truncating           | `post`                                                       |
-| OOV Token            | `<OOV>`                                                      |
+| Kernel Size          | (3, 3)                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Pool Size            | (2, 2)                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Steps per Epoch      | sample_size // batch_size                                                                                                                                                                                                                                                                                                                                                                                         |
+| Epoch                | Use callbacks                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Embedding Dimensions | vocab_size ** 0.25                                                                                                                                                                                                                                                                                                                                                                                                |
+| Truncating           | `post`                                                                                                                                                                                                                                                                                                                                                                                                            |
+| OOV Token            | `<OOV>`                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 
 
@@ -217,7 +217,7 @@ vectorizer = layers.TextVectorization(
 
 # Creating a vocabulary of words from the sentences.
 vectorizer.adapt(sentences)
-# Getting the vocabulary of the vectorizer.
+# Getting the vocabulary of the vectorized.
 vocab = vectorizer.get_vocabulary()
 # Creating a dictionary of words and their index in the vocabulary.
 word_index = dict(zip(vocab, range(len(vocab))))
@@ -242,7 +242,7 @@ ys = tf.keras.utils.to_categorical(labels, num_classes=3)
 **F1-Score**
 
 ```python
-import keras.backend as K
+import tensorflow.keras.backend as K
 
 
 def f1_score(y_true, y_pred):
@@ -374,7 +374,7 @@ for layer_name, feature_map in zip(layer_names, successive_feature_maps):
     if len(feature_map.shape) == 4:
 
         # -------------------------------------------
-        # Just do this for the conv / maxpool layers, not the fully-connected layers
+        # Just do this for the conv / max pool layers, not the fully-connected layers
         # -------------------------------------------
         n_features = feature_map.shape[-1]  # number of features in the feature map
         size = feature_map.shape[1]  # feature map shape (1, size, size, n_features)
@@ -438,11 +438,11 @@ history = model.fit(dataset, epochs=100, callbacks=[lr_schedule], verbose=0)
 import tensorflow as tf
 
 
-class myCallback(tf.keras.callbacks.Callback):
-    def on_epoch_end(self, epoch, logs):
-        if logs.get("accuracy") > 0.6:
-            print("\nReached 60% accuracy so cancelling training!")
-            self.model.stop_training = True
+class MyCallback(tf.keras.callbacks.Callback):
+  def on_epoch_end(self, logs):
+    if logs.get("accuracy") > 0.6:
+      print("\nReached 60% accuracy so cancelling training!")
+      self.model.stop_training = True
 
 
 mnist = tf.keras.datasets.fashion_mnist
@@ -450,19 +450,19 @@ mnist = tf.keras.datasets.fashion_mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 x_train, x_test = x_train / 255.0, x_test / 255.0
 
-callbacks = myCallback()
+callbacks = MyCallback()
 
 model = tf.keras.models.Sequential(
-    [
-        tf.keras.layers.Flatten(input_shape=(28, 28)),
-        tf.keras.layers.Dense(512, activation=tf.nn.relu),
-        tf.keras.layers.Dense(10, activation=tf.nn.softmax),
-    ]
+  [
+    tf.keras.layers.Flatten(input_shape=(28, 28)),
+    tf.keras.layers.Dense(512, activation=tf.nn.relu),
+    tf.keras.layers.Dense(10, activation=tf.nn.softmax),
+  ]
 )
 model.compile(
-    optimizer=tf.optimizers.Adam(),
-    loss="sparse_categorical_crossentropy",
-    metrics=["accuracy"],
+  optimizer=tf.optimizers.Adam(),
+  loss="sparse_categorical_crossentropy",
+  metrics=["accuracy"],
 )
 
 model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
@@ -516,13 +516,13 @@ model.compile(
 
 <a name="overfit"/>
 
-### Overfitting
+### Over-fitting
 
 * **[Augmentation](#preprocessing)** 
 
 * **Reduce Model Complexity**
-  * Reduce overfitting by training the network on more examples.
-  * Reduce overfitting by changing the complexity of the network (network sturcture and network parameters).
+  * Reduce over-fitting by training the network on more examples.
+  * Reduce over-fitting by changing the complexity of the network (network structure and network parameters).
 
 * **Regularization**
 
@@ -536,9 +536,9 @@ model.compile(
 ### Unstable Gradient
 
 * Proper initialization of weights: special initial distribution, reusing pretrained layers, etc
-* Nonsaturating activation functions: Leaky ReLU, exponential LU (ELU), etc.
+* Non-saturating activation functions: Leaky ReLU, exponential LU (ELU), etc.
 * Batch normalization: scale inputs before each layer during training
-* Gradient cipping: set a threshold for the gradient
+* Gradient clipping: set a threshold for the gradient
 
 
 
